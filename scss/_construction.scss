@@ -1,0 +1,45 @@
+// Construction & adaptive.
+// ========================
+
+@mixin to-region() {
+  background-color: white;
+  padding: $base-margin;
+  box-sizing: border-box;
+}
+
+@mixin to-base-section() {
+  @include susy-breakpoint($phone-only-breakpoint) {
+    padding-bottom: $base-margin;
+    padding-top: $base-margin;
+  }
+
+  @include susy-breakpoint($tablet-only-breakpoint) {
+    padding-bottom: $base-margin * 2;
+    padding-top: $base-margin * 2;
+  }
+
+  @include susy-breakpoint($big-screen-up-breakpoint) {
+    padding-bottom: $base-padding-wrapper;
+    padding-top: $base-padding-wrapper;
+  }
+}
+
+.container {
+  @include container(70em);
+  @include gutter(inside);
+}
+
+.region-front {
+  > .block {
+    @include to-base-section();
+  }
+}
+
+main {
+  @include pre(1 of 4 inside);
+  @include span(3 of 4 inside);
+
+  @include susy-breakpoint($phone-only-breakpoint) {
+    @include span(full);
+  }
+}

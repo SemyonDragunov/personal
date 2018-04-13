@@ -1,0 +1,68 @@
+// Lifu basic style file.
+// ======================
+
+// Add dependencies.
+
+@import "../bower_components/reset-css/reset";
+@import "../bower_components/susy/sass/susy";
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+
+// Mixin.
+
+@mixin to-margin-last($side: right, $margin: $base-margin) {
+  margin-#{$side}: $margin;
+
+  &:last-child {
+    margin-#{$side}: 0;
+  }
+}
+
+// Variables.
+
+$susy: (
+  columns: 4,
+  gutters: 1/4,
+);
+
+$phone-only-breakpoint: (
+  max-width: 767px,
+);
+
+$tablet-only-breakpoint: (
+  min-width: 768px,
+  max-width: 1119px,
+);
+
+$tablet-up-breakpoint: (
+        min-width: 768px,
+);
+
+$big-screen-up-breakpoint: (
+  min-width: 1200px,
+);
+
+$font-size: 16px;
+$base-margin: 15px;
+$base-padding-wrapper: 50px;
+$border-radius-element: 1000px;
+
+$form-element-height: 40px;
+
+$base-color-text: #282828;
+$base-color-bg: #f8f8f8;
+$base-color-bg-section: white;
+
+$grey-color-text: #787878;
+$grey-color-border: #efefef;
+$grey-color-bg: #efefef;
+
+@import "theme";
+@import "typography";
+@import "buttons";
+@import "forms";
+@import "construction";
+@import "errors";
+@import "login";
+@import "maintenance";
+@import "elements";
+@import "comments";

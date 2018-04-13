@@ -1,0 +1,68 @@
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+
+$color-main: #3aa8db;
+
+a {
+  color: $color-main;
+}
+
+a:hover,
+a:focus {
+  color: $color-main;
+}
+
+.button,
+#{$all-buttons} {
+  background-color: $color-main;
+}
+
+.button:hover,
+.button:focus,
+#{$all-buttons-focus},
+#{$all-buttons-hover} {
+  color: $color-main;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:hover {
+  color: $color-main;
+}
+
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active,
+.button:active {
+  color: $color-main;
+}
+
+ul.pager {
+  li {
+    &.pager-current {
+      border-color: $color-main;
+    }
+
+    a {
+      border-color: $color-main;
+      background-color: $color-main;
+
+      &:hover,
+      &:focus {
+        border-color: $color-main;
+      }
+    }
+  }
+}
+
+#comments {
+  .comment-new {
+    border-left-color: $color-main;
+  }
+}
+
+.switch {
+  input:checked+label {
+    background-color: $color-main;
+  }
+}

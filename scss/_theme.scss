@@ -1,0 +1,230 @@
+// Theme style.
+// ============
+
+body,
+html {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: $base-color-text;
+  font-size: $font-size;
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizespeed;
+  margin: 0;
+  padding: 0;
+  line-height: 150%;
+  background-color: $base-color-bg;
+}
+
+hr {
+  border-style: solid;
+  border-color: $grey-color-text;
+  -moz-border-top-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-image: none;
+  border-width: 1px 0 0;
+  clear: both;
+  height: 0;
+  box-sizing: content-box;
+}
+
+ul.tabs.primary {
+  margin-bottom: $base-margin;
+
+  li {
+    @include to-margin-last;
+    display: inline-block;
+  }
+}
+
+ul.inline {
+  li {
+    display: inline-block;
+    @include to-margin-last;
+  }
+}
+
+.sl7-copyright {
+  text-align: center;
+}
+
+.content-center {
+  text-align: center;
+}
+
+section.content {
+  background-color: $base-color-bg-section;
+}
+
+$side-gutter: 25px;
+
+@mixin to-side() {
+  position: fixed;
+
+  @include susy-breakpoint((max-width: 3000px)) {
+    width: 550px;
+  }
+  @include susy-breakpoint((max-width: 1940px)) {
+    width: 440px;
+  }
+  @include susy-breakpoint((max-width: 1700px)) {
+    width: 400px;
+  }
+  @include susy-breakpoint((max-width: 1370px)) {
+    width: 270px;
+  }
+  @include susy-breakpoint((max-width: 1150px)) {
+    width: 220px;
+  }
+  @include susy-breakpoint((max-width: 970px)) {
+    width: 190px;
+  }
+  @include susy-breakpoint((max-width: 768px)) {
+    width: 160px;
+  }
+  @include susy-breakpoint($phone-only-breakpoint) {
+    @include span(full);
+    position: static;
+  }
+}
+
+header {
+  @include to-side();
+  @include transition(all .3s);
+  background-color: $base-color-bg-section;
+  top: $side-gutter;
+  left: $side-gutter;
+  bottom: $side-gutter;
+  -webkit-box-shadow: 0 0 30px 0 rgba(0, 0, 0, .1);
+  -moz-box-shadow: 0 0 30px 0 rgba(0, 0, 0, .1);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, .1);
+  z-index: 888;
+
+  @include susy-breakpoint($phone-only-breakpoint) {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  $header-button: (
+          min-width: 768px,
+          max-width: 1150px,
+  );
+
+  .button,
+  #{$all-buttons} {
+    @include susy-breakpoint($header-button) {
+      line-height: 20px;
+      height: 22px;
+      padding: 0 5px;
+      font-size: 15px;
+    }
+  }
+
+  a#logo {
+    display: block;
+    text-align: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      -webkit-backface-visibility: hidden;
+    }
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  h2 { font-size: 24px; }
+
+  .pad-wrapper {
+    @include pad(25px);
+  }
+
+  nav {
+    ul {
+      li {
+        display: block !important;
+        text-align: right;
+        margin-right: 0 !important;
+        font-size: 13px;
+        font-weight: 500;
+        border-bottom: 1px solid rgba(0,0,0,.1);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        a {
+          display: block;
+          padding: 8px 0;
+        }
+      }
+    }
+  }
+}
+
+main {
+  margin-bottom: 25px;
+
+  @include susy-breakpoint($tablet-up-breakpoint) {
+    margin-top: 25px;
+  }
+}
+
+.region-action {
+  @include span(full);
+  @include susy-clearfix();
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+  .block {
+    @include to-margin-last(bottom, 10px);
+    text-align: center;
+  }
+}
+
+.region-front {
+  .block {
+    &:nth-child(2n) {
+      background-color: white;
+    }
+
+    @include susy-breakpoint($tablet-up-breakpoint) {
+      padding-right: $base-margin * 2;
+      padding-left: $base-margin * 2;
+    }
+  }
+}
+
+footer {
+  @include to-side();
+  left: $side-gutter;
+  bottom: $side-gutter;
+  z-index: 890;
+  padding: $side-gutter;
+  box-sizing: border-box;
+
+  @include susy-breakpoint($phone-only-breakpoint) {
+    left: 0;
+    bottom: 0;
+
+    .block {
+      @include to-margin-last(right, 15px);
+      margin-bottom: 0;
+      float: left;
+    }
+  }
+
+  .block {
+    margin-bottom: 10px;
+    float: left;
+  }
+}
